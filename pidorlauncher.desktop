@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Pidorlauncher
+Comment=Загружайте программы от GovNo и других разработчиков.
+Exec=pidorlauncher ;
+Icon=pidorlauncher ;
+Terminal=false
+Type=Application
+Categories=Utility;
+
