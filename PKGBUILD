@@ -12,9 +12,7 @@ sha256sums=('SKIP')
 
 package() {
   cd "${srcdir}/pidorlauncher-${pkgver}" 
-
-  /usr/bin/python setup.py install --root="${pkgdir}" --optimize=1
-  find "${pkgdir}" -name "*.pyc" -delete
+  /usr/bin/python setup.py install --root="${pkgdir}"
 }
 
 

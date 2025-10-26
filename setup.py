@@ -1,51 +1,41 @@
 from setuptools import setup, find_packages
-import os
 
-here = os.path.abspath(os.path.dirname(__file__))
-
-try:
-  with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
-except FileNotFoundError:
-  long_description = 'Скачивай крутой софт от GovNo и других разрабов!!'
+# Прочитайте зависимости из requirements.txt, если они есть.
+# Если нет, просто перечислите их в install_requires.
+install_deps = [
+  'PyQt5',
+  'requests',
+]
 
 setup(
-  # --- Основная информация ---
   name='pidorlauncher',
-  version='1.0.0',
-  author='Ваше Имя',
-  author_email='realriba@atomicmail.io',
+  version='0.1.0',
   description='Скачивай крутой софт от GovNo и других разрабов!!',
-  long_description=long_description,
-  long_description_content_type='text/markdown',
+  author='govnocorp',
+  author_email='realriba@atomicmail.io',
   url='https://govnocorp.github.io/pidorlauncher',
-  license='BSD-3-Clause',
 
-  classifiers=[
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
-    'License :: OSI Approved :: MIT License',
-    'Operating System :: OS Independent',
-    'Development Status :: 5 - Production', 
-  ],
-  
-  
-  py_modules=['main'], 
-  
-  install_requires=[
-    'requests',
-    'pyqt5', 
-  ],
-  
+  # Автоматически находит все пакеты в директории
+  packages=find_packages(exclude=['tests', 'docs']),
+
+  # Указываем зависимости
+  install_requires=install_deps,
+
+  # Точка входа: создает исполняемый файл в PATH.
+  # Синтаксис: 'имя_команды = package_name.module_name:function_name'
   entry_points={
     'console_scripts': [
-      'pidorlauncher = pidorlauncher.main:main'
+      'pidorlauncher = pidorlauncher.main:main', 
     ],
   },
 
-  # Требования к версии Python
-  python_requires='>=3.11',
+  # Дополнительные метаданные
+  license='BSD-3-Clause',
+  classifiers=[
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: POSIX :: Linux',
+    'Topic :: Desktop Environment',
+  ],
 )
-
 
