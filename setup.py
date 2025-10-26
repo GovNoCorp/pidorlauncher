@@ -9,7 +9,7 @@ install_deps = [
 
 setup(
   name='pidorlauncher',
-  version='0.1.0',
+  version='1.0.0',
   description='Скачивай крутой софт от GovNo и других разрабов!!',
   author='govnocorp',
   author_email='realriba@atomicmail.io',
