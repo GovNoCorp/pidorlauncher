@@ -12,7 +12,7 @@ sha256sums=('SKIP')
 
 package() {
   cd "${srcdir}/pidorlauncher-${pkgver}" 
-  /usr/bin/python setup.py install --root="${pkgdir}"
+  python -m pip install --root="$pkgdir" --optimize=1 --skip-dependency-check .
   install -Dm644 "pidorlauncher.desktop" "$pkgdir/usr/share/applications/pidorlauncher.desktop"
   install -Dm644 "pidorlauncher.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/pidorlauncher.png"
 }
